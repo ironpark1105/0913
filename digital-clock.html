@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital-clock</title>
+    <style>
+        @font-face {
+            font-family: 'Digital-7', arial;
+            src: url(digital-7_[allfont.net].ttf);
+        }
+        #clock{
+            position: absolute;
+            width: 400px;
+            height: 150px;
+            background: #999;
+            font-size: 100px;
+            line-height: 150px;
+            text-align: center;
+            border: 10px solid #333;
+            border-radius: 20px;
+            font-family: 'Digital-7', arial;
+            padding-left: 10px;
+            padding-right: 10px;
+            box-shadow: 0 0 10px #000 inset;
+            left: calc(50% - 200px) ;
+            top: calc(50% - 80px);
+            letter-spacing: 2px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="clock">
+        <span id="hour">00</span>:
+        <span id="min">00</span>:
+        <span id="sec">00</span>
+    </div>
+    <script>
+        setInterval(function(){
+            
+            let d = new Date();
+            let h = d.getHours();
+            let m = d.getMinutes();
+            let s = d.getSeconds();
+            let timerId = setInterval(() => alert('점심시간입니다.'), 5000);
+
+
+            //문서에 시간 표시 
+            let hour = document.getElementById('hour');
+            hour.innerHTML = h;
+            
+            //분
+            let min = document.getElementById('min');
+            min.innerHTML = m;
+    
+            //초
+            let sec = document.getElementById('sec');
+            sec.innerHTML = s;
+            }, 1000
+            );
+            
+
+            setTimeout(() => { clearInterval(timerId); alert('점심시간입니다.'); }, 5000);
+
+    </script>
+    
+</body>
+</html>
